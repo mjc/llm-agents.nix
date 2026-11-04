@@ -6,6 +6,7 @@
   fetchNpmDeps,
   python3,
   versionCheckHook,
+  webSocketPort ? 8080,
 }:
 
 buildNpmPackage (finalAttrs: {
@@ -35,7 +36,7 @@ buildNpmPackage (finalAttrs: {
     fetcherVersion = 2;
   };
 
-  env.VITE_WS_PORT = "8080";
+  env.VITE_WS_PORT = toString webSocketPort;
 
   nativeBuildInputs = [ python3 ];
 
@@ -62,10 +63,31 @@ buildNpmPackage (finalAttrs: {
 
     cat > $out/bin/infinity-webui <<'EOF'
     #!/bin/sh
-    if [ "''${1-}" = "--version" ]; then
-      echo "@version@"
-      exit 0
-    fi
+    case "''${1-}" in
+      --version)
+        echo "@version@"
+        exit 0
+        ;;
+      --help|-h)
+        cat <<'HELP'
+    Infinity Web UI server for Infinity coding agents.
+
+    Usage: infinity-webui [--help|--version]
+
+    Serves the UI on 127.0.0.1:4173 by default. Configure the HTTP listener
+    with INFINITY_WEBUI_BIND and INFINITY_WEBUI_PORT. Set the webSocketPort Nix
+    argument to match the daemon port (default 8080).
+    HELP
+        exit 0
+        ;;
+      "")
+        ;;
+      *)
+        echo "infinity-webui: unexpected argument: $1" >&2
+        echo "Run 'infinity-webui --help' for usage." >&2
+        exit 2
+        ;;
+    esac
 
     port="''${INFINITY_WEBUI_PORT:-4173}"
     bind="''${INFINITY_WEBUI_BIND:-127.0.0.1}"
