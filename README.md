@@ -311,6 +311,16 @@ Nix packages for AI coding agents and development tools. Automatically updated d
 
 </details>
 <details>
+<summary><strong>infinity-provider-bedrock</strong> - AWS Bedrock model provider for Infinity coding agents</summary>
+
+- **Source**: source
+- **License**: Apache-2.0
+- **Homepage**: https://infinity.hydro.run/docs/infinity-code/model-providers
+- **Usage**: `nix run github:numtide/llm-agents.nix#infinity-provider-bedrock -- --help`
+- **Nix**: [packages/infinity-provider-bedrock/package.nix](packages/infinity-provider-bedrock/package.nix)
+
+</details>
+<details>
 <summary><strong>infinity-webui</strong> - Standalone web UI for Infinity coding agents</summary>
 
 - **Source**: source
@@ -1798,6 +1808,16 @@ Nix packages for AI coding agents and development tools. Automatically updated d
 - **Homepage**: https://nono.sh/
 - **Usage**: `nix run github:numtide/llm-agents.nix#nono -- --help`
 - **Nix**: [packages/nono/package.nix](packages/nono/package.nix)
+
+</details>
+<details>
+<summary><strong>sandbox-local</strong> - Local sandbox server for Infinity coding agents</summary>
+
+- **Source**: source
+- **License**: Apache-2.0
+- **Homepage**: https://infinity.hydro.run/docs/infinity-code/rap-servers
+- **Usage**: `nix run github:numtide/llm-agents.nix#sandbox-local -- --help`
+- **Nix**: [packages/sandbox-local/package.nix](packages/sandbox-local/package.nix)
 
 </details>
 <details>
