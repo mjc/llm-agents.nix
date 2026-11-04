@@ -1,0 +1,5 @@
+--use-github-releases
+--version-regex
+^infinity-agent-cli-v([0-9]+\.[0-9]+\.[0-9]+)$
+--custom-dep
+uiNpmDeps
