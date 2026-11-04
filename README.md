@@ -301,6 +301,16 @@ Nix packages for AI coding agents and development tools. Automatically updated d
 
 </details>
 <details>
+<summary><strong>infinity</strong> - Coding agent CLI built on the Infinity concurrent agent runtime</summary>
+
+- **Source**: source
+- **License**: Apache-2.0
+- **Homepage**: https://infinity.hydro.run/docs/infinity-code/overview/
+- **Usage**: `nix run github:numtide/llm-agents.nix#infinity -- --help`
+- **Nix**: [packages/infinity/package.nix](packages/infinity/package.nix)
+
+</details>
+<details>
 <summary><strong>jcode</strong> - RAM-efficient coding agent TUI with multi-model support and swarm coordination</summary>
 
 - **Source**: source
